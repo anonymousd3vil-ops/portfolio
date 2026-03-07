@@ -80,6 +80,10 @@ setTimeout(()=>{
 },8000);
 
 
+window.addEventListener("resize",()=>{
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+});
 
 /* ==============================
    THANOS SNAP EFFECT
