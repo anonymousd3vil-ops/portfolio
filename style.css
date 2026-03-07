@@ -109,11 +109,11 @@ nav a:hover {
     text-align: center;
 }
 
-@media (max-width:768px){
+@media (max-width:768px) {
 
-.section{
-    padding:60px 20px;
-}
+    .section {
+        padding: 60px 20px;
+    }
 
 }
 
@@ -323,7 +323,7 @@ footer {
 }
 
 #hero-name {
-    font-size: clamp(40px,12vw,100px);
+    font-size: clamp(40px, 12vw, 100px);
     margin: 30px 0;
     opacity: 0;
     animation: heroReveal 2s forwards;
@@ -374,38 +374,38 @@ footer {
 
 /* MOBILE OPTIMIZATION */
 
-@media (max-width:768px){
+@media (max-width:768px) {
 
-header{
-padding:15px 20px;
-flex-direction:column;
-gap:10px;
-}
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-.hero-title{
-font-size:60px;
-letter-spacing:4px;
-}
+    .hero-title {
+        font-size: 60px;
+        letter-spacing: 4px;
+    }
 
-.section h2{
-font-size:36px;
-}
+    .section h2 {
+        font-size: 36px;
+    }
 
-.about-grid{
-grid-template-columns:1fr;
-}
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
 
-.profile-photo{
-max-width:250px;
-}
+    .profile-photo {
+        max-width: 250px;
+    }
 
-.stones{
-gap:20px;
-}
+    .stones {
+        gap: 20px;
+    }
 
-.stone{
-width:70px;
-height:70px;
-}
+    .stone {
+        width: 70px;
+        height: 70px;
+    }
 
 }

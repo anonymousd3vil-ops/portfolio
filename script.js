@@ -1,112 +1,112 @@
 // Wait until page fully loads
 window.addEventListener("load", () => {
 
-const snapButton = document.getElementById("snapButton");
-const intro = document.getElementById("intro");
+    const snapButton = document.getElementById("snapButton");
+    const intro = document.getElementById("intro");
 
-const canvas = document.getElementById("introCanvas");
-const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("introCanvas");
+    const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-/* ==============================
-   PARTICLE INTRO ANIMATION
-============================== */
+    /* ==============================
+       PARTICLE INTRO ANIMATION
+    ============================== */
 
-let particles = [];
+    let particles = [];
 
-class Particle {
+    class Particle {
 
-    constructor(){
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
 
-        this.tx = canvas.width/2 + (Math.random()*300 - 150);
-        this.ty = canvas.height/2;
+            this.tx = canvas.width / 2 + (Math.random() * 300 - 150);
+            this.ty = canvas.height / 2;
 
-        this.size = 2;
-        this.speed = Math.random()*0.04 + 0.02;
+            this.size = 2;
+            this.speed = Math.random() * 0.04 + 0.02;
+        }
+
+        update() {
+            this.x += (this.tx - this.x) * this.speed;
+            this.y += (this.ty - this.y) * this.speed;
+        }
+
+        draw() {
+            ctx.fillStyle = "#e62429";
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
     }
 
-    update(){
-        this.x += (this.tx - this.x) * this.speed;
-        this.y += (this.ty - this.y) * this.speed;
+    // create particles
+    for (let i = 0; i < 1200; i++) {
+        particles.push(new Particle());
     }
 
-    draw(){
-        ctx.fillStyle = "#e62429";
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-        ctx.fill();
+    // animate particles
+    function animate() {
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+
+        requestAnimationFrame(animate);
     }
 
-}
+    animate();
 
-// create particles
-for(let i=0;i<1200;i++){
-    particles.push(new Particle());
-}
 
-// animate particles
-function animate(){
+    /* ==============================
+       REMOVE INTRO AFTER ANIMATION
+    ============================== */
 
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    setTimeout(() => {
 
-    particles.forEach(p=>{
-        p.update();
-        p.draw();
+        intro.style.transition = "opacity 1.5s ease";
+        intro.style.opacity = "0";
+
+        setTimeout(() => {
+            intro.style.display = "none";
+        }, 1500);
+
+    }, 8000);
+
+
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
 
-    requestAnimationFrame(animate);
-}
+    /* ==============================
+       THANOS SNAP EFFECT
+    ============================== */
 
-animate();
+    if (snapButton) {
 
+        snapButton.addEventListener("click", () => {
 
-/* ==============================
-   REMOVE INTRO AFTER ANIMATION
-============================== */
+            let elements = document.querySelectorAll("section, header, footer");
 
-setTimeout(()=>{
+            elements.forEach((el, i) => {
 
-    intro.style.transition = "opacity 1.5s ease";
-    intro.style.opacity = "0";
+                setTimeout(() => {
+                    el.style.transition = "1s";
+                    el.style.opacity = "0";
+                    el.style.transform = "scale(0.3)";
+                }, i * 200);
 
-    setTimeout(()=>{
-        intro.style.display = "none";
-    },1500);
+            });
 
-},8000);
+        });
 
-
-window.addEventListener("resize",()=>{
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-});
-
-/* ==============================
-   THANOS SNAP EFFECT
-============================== */
-
-if(snapButton){
-
-snapButton.addEventListener("click", () => {
-
-    let elements = document.querySelectorAll("section, header, footer");
-
-    elements.forEach((el,i)=>{
-
-        setTimeout(()=>{
-            el.style.transition = "1s";
-            el.style.opacity = "0";
-            el.style.transform = "scale(0.3)";
-        }, i*200);
-
-    });
-
-});
-
-}
+    }
 
 });
