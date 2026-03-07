@@ -69,16 +69,47 @@ nav a:hover {
 /* HERO */
 
 .hero {
+
     height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    background-image: url("assets/bacground.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+
+}
+
+.hero::before {
+
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+}
+
+.hero * {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-title {
     font-family: 'Bebas Neue', sans-serif;
+    text-shadow:0 0 30px #e62429;
     font-size: 120px;
     letter-spacing: 8px;
     color: #e62429;
