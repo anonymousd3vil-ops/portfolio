@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Wait until page fully loads
 window.addEventListener("load", () => {
 
@@ -217,6 +216,4 @@ snapButton.addEventListener("click", () => {
 });
 
 }
-
->>>>>>> bb5b82e2d8a7b269d4ec79d12708993f62af40ad
 });
