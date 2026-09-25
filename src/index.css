@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(230, 36, 41, 0.14), transparent 34%),
+    linear-gradient(180deg, #090909 0%, #0b0b0b 35%, #0f0f0f 100%);
+  line-height: 1.7;
+}
+
+::selection {
+  background: #e62429;
+  color: black;
+}
+::-moz-selection {
+  background: #e62429;
+  color: black;
+}
+
+/* Faint grid backdrop, same as original body::before */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: -1;
+}
+
+/* Card-style translucent panel behind each section, same as .section::before */
+.section-panel::before {
+  content: '';
+  position: absolute;
+  inset: 24px 8% 0;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: -1;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 768px) {
+  .section-panel::before {
+    inset: 18px 20px 0;
+  }
+}
