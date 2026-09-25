@@ -26,7 +26,6 @@ and a fun "Snap" button that disintegrates the page, Thanos-style.
 | Layer     | Tech                              |
 |-----------|-----------------------------------|
 | Frontend  | React 18, Vite, Tailwind CSS      |
-| Backend   | Node.js, Express                  |
 | Fonts     | Bebas Neue, Montserrat (Google Fonts) |
 
 ---
