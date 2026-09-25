@@ -1,5 +1,5 @@
 
-import background from "../assets/bacground.png";
+import background from "../assets/background.png";
 
 export default function Hero({ snapped, snapDelay }) {
   return (

@@ -1,54 +1,67 @@
-# Vivek Patel Portfolio — React + Node.js + Tailwind CSS
+# 🦸 Vivek Patel — Portfolio Website
 
-Same design, same content, same animations (particle intro, scroll reveals,
-"Snap" disintegration button) as the original HTML/CSS/JS site — rebuilt as
-a component-based React app (Vite + Tailwind) with a small Node/Express
-server to serve it and host a future API (e.g. a real contact form).
+A Marvel-themed personal portfolio for **Vivek Patel**, a Second Year B.Tech
+Computer Science & Engineering student at **NIT Agartala**. Built as a
+single-page React app with a boot-sequence intro, scroll-reveal sections,
+and a fun "Snap" button that disintegrates the page, Thanos-style.
 
-## Folder structure
+> "I Love You In Every Universe!"
+
+---
+
+## ✨ Features
+
+- 🎬 **Cinematic intro** — animated particle canvas that converges into the name reveal, with a typed boot-sequence ("INITIALIZING MARVEL PROTOCOL…")
+- 🧭 **Sticky navbar** that gains a background/shadow on scroll
+- 🌀 **Scroll-reveal sections** — Origin (About), Powers (Skills), Missions(Projects), Command (Contact)
+- 💎 **Infinity Stones** skills section (placeholder until skills are added)
+- 👋 **Snap button** — disintegrates every section with a staggered scale/blur/fade transition
+- 📱 Fully responsive, dark themed, Marvel red/orange accent palette
+- 🧩 Component-based architecture — every section is its own reusable React component
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer     | Tech                              |
+|-----------|-----------------------------------|
+| Frontend  | React 18, Vite, Tailwind CSS      |
+| Backend   | Node.js, Express                  |
+| Fonts     | Bebas Neue, Montserrat (Google Fonts) |
+
+---
+
+## 📁 Project Structure
 
 ```
-vivek-portfolio-react/
-├── client/                      # React + Vite + Tailwind (the site itself)
-│   ├── public/
-│   │   └── assets/
-│   │       ├── vivek.png        # ← add your photo here
-│   │       └── bacground.png    # ← add your hero background here
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── IntroLoader.jsx  # particle canvas + boot-sequence text
-│   │   │   ├── Navbar.jsx       # sticky nav + scroll state + Snap button
-│   │   │   ├── Hero.jsx
-│   │   │   ├── About.jsx
-│   │   │   ├── Skills.jsx       # Infinity Stones
-│   │   │   ├── Projects.jsx
-│   │   │   ├── Contact.jsx
-│   │   │   └── Footer.jsx
-│   │   ├── hooks/
-│   │   │   └── useScrollReveal.js
-│   │   ├── App.jsx              # wires everything together, holds snap state
-│   │   ├── main.jsx
-│   │   └── index.css            # Tailwind directives + a few global rules
-│   ├── index.html
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
-│   ├── vite.config.js
-│   └── package.json
-│
-├── server/                      # Node.js + Express
-│   ├── server.js                # serves client/dist, has /api/contact stub
-│   └── package.json
-│
-└── README.md
+portfolio/
+├── src/
+│   ├── assets/              # vivek.png background.png
+│   ├── components/          # Navbar, Hero, About, Skills, Projects, Contact, Footer, IntroLoader
+│   ├── hooks/useScrollReveal.js
+│   ├── App.jsx, main.jsx, index.css
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+└── vite.config.js
 ```
 
-## 1. Add your images
+---
 
-The uploaded files didn't include `vivek.png` / `bacground.png`, so drop
-your originals into `client/public/assets/` using those exact names (see
-the note left in that folder).
+## 🚀 Getting Started
 
-## 2. Install & run the frontend (development)
+### Prerequisites
+- Node.js 18+ and npm
+
+### 1. Add your images
+Drop your photo and hero background into `src/assets/` as:
+- `vivek.png`
+- `background.png`
+
+### 2. Run in development
 
 ```bash
 cd client
@@ -56,49 +69,21 @@ npm install
 npm run dev
 ```
 
-Opens at `http://localhost:5173` with hot reload.
+Visit `http://localhost:5173`.
 
-## 3. Install & run the backend
+---
 
-```bash
-cd server
-npm install
-npm start
-```
+## 🔗 Connect
 
-Runs at `http://localhost:5000`. On its own it only serves the API route
-and (once built) the production frontend — it's not needed for `npm run dev`.
+- GitHub: [anonymousd3vil-ops](https://github.com/anonymousd3vil-ops)
+- LinkedIn: [vivek-pat3l](https://www.linkedin.com/in/vivek-pat3l/)
+- Instagram: [@vivek_pat3l](https://instagram.com/vivek_pat3l)
+- LeetCode: [vivek_pat3l](https://leetcode.com/u/vivek_pat3l/)
+- Email: vivekpatel.9172@gmail.com
 
-## 4. Production build (serve React through Express)
+---
 
-```bash
-# build the React app
-cd client
-npm install
-npm run build
+## 📄 License
 
-# then start the server, which serves client/dist
-cd ../server
-npm install
-npm start
-```
-
-Visit `http://localhost:5000` — Express now serves the built React site and
-exposes `/api/contact` (POST) for future backend logic.
-
-## What changed vs. the original files
-
-- **Component-based**: each `<section>` is now its own `.jsx` component
-  instead of one long `index.html`.
-- **Tailwind CSS**: all of `style.css` was ported to Tailwind utility
-  classes (arbitrary values used where needed to match exact colors/sizes),
-  plus a small `tailwind.config.js` theme extension for the custom palette
-  (`accent`, `nick`, `muted`, etc.) and keyframe animations (`glow`,
-  `heroFloat`, `fadeIn`, `heroReveal`).
-- **Same behavior**: the particle-intro canvas, scroll-triggered reveals,
-  scrolled-navbar shadow, and the "Snap" disintegration effect are
-  reimplemented with React hooks (`useEffect`, `useState`,
-  `IntersectionObserver`) instead of the original vanilla `script.js`.
-- **Node/Express backend added**: serves the production build and gives you
-  a real place to add a working contact form, project API, etc. — the
-  static site didn't have a backend before.
+© 2026 Vivek Patel. Personal portfolio project — feel free to fork for
+inspiration, but please don't copy the content as your own.
