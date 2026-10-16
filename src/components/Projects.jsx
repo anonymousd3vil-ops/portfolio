@@ -1,4 +1,4 @@
-import useScrollReveal from '../hooks/useScrollReveal'
+import useScrollReveal from '../hooks/useScrollReveal.js'
 
 export default function Projects({ snapped, snapDelay }) {
   const [ref, visible] = useScrollReveal()

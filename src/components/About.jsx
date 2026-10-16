@@ -1,4 +1,4 @@
-import useScrollReveal from '../hooks/useScrollReveal'
+import useScrollReveal from '../hooks/useScrollReveal.js'
 import vivek from "../assets/vivek.png";
 
 export default function About({ snapped, snapDelay }) {

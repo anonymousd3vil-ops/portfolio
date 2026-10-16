@@ -1,4 +1,4 @@
-import useScrollReveal from '../hooks/useScrollReveal'
+import useScrollReveal from '../hooks/useScrollReveal.js'
 
 const stones = [
   { name: 'Space', color: '#2d6bff' },

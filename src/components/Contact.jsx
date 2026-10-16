@@ -1,4 +1,4 @@
-import useScrollReveal from "../hooks/useScrollReveal";
+import useScrollReveal from "../hooks/useScrollReveal.js";
 
 const links = [
   { label: "GitHub", href: "https://github.com/anonymousd3vil-ops" },
